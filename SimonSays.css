@@ -1,0 +1,61 @@
+h1 {
+    text-align: center;
+}
+
+#change {
+    text-align: center;
+}
+
+body {
+    background-color: bisque;
+}
+
+.box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 400px;
+    margin: auto;
+}
+
+.clickBox {
+    height: 150px;
+    width: 150px;
+    border: 5px solid black;
+    border-radius: 30px;
+    margin: 6px 0 6px 0;
+}
+
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: green;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.blue {
+    background-color: blue;
+}
+
+button {
+    border-radius: 5px;
+    background-color: antiquewhite;
+}
+
+/* Used in DOM */
+.flash {
+    background-color: white;
+}
+
+.userflash {
+    background-color: orchid;
+}
+
+.gameEnd {
+    background-color: red;
+}
