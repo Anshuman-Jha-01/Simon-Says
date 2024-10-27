@@ -20,7 +20,7 @@ The **Simon Says Game** is a memory game where the player needs to repeat a sequ
 
 - **Interactive Gameplay**: Players can use their memory to repeat sequences and progress through levels.
 - **Difficulty Selection**: Choose difficulty level at the start (Easy, Medium, or Hard).
-- **Score Tracking**: Displays the current score and highest score after each game.
+- **Score Tracking**: Displays the highest score after each game.
 
 ## Technologies Used
 
@@ -36,7 +36,7 @@ The **Simon Says Game** is a memory game where the player needs to repeat a sequ
 
 2. **Navigate into the project directory:**
     ```bash
-    cd simon-says-game
+    cd Simon-Says
 
 3. **Open the ```SimonSays.HTML``` file** in your browser to start playing the game.
 
