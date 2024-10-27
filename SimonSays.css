@@ -1,15 +1,19 @@
+/* Center-aligns the title */
 h1 {
     text-align: center;
 }
 
+/* Center-aligns the game instructions */
 #change {
     text-align: center;
 }
 
+/* Background styling for the game */
 body {
     background-color: bisque;
 }
 
+/* Container for color boxes */
 .box {
     display: flex;
     flex-wrap: wrap;
@@ -18,44 +22,41 @@ body {
     margin: auto;
 }
 
+/* Basic styling for each color box */
 .clickBox {
     height: 150px;
     width: 150px;
     border: 5px solid black;
     border-radius: 30px;
-    margin: 6px 0 6px 0;
+    margin: 6px 0;
 }
 
+/* Color styles for individual boxes */
 .red {
     background-color: red;
 }
-
 .green {
     background-color: green;
 }
-
 .orange {
     background-color: orange;
 }
-
 .blue {
     background-color: blue;
 }
 
-button {
-    border-radius: 5px;
-    background-color: antiquewhite;
-}
 
-/* Used in DOM */
+/* Flash effect for game sequence */
 .flash {
     background-color: white;
 }
 
+/* Flash effect for user clicks */
 .userflash {
     background-color: orchid;
 }
 
+/* Background change for game over */
 .gameEnd {
     background-color: red;
 }

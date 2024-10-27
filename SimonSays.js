@@ -1,116 +1,99 @@
-let gameSeq = []; //in levelUp
-let userSeq = []; //in levelUp
-let rand;  //in levelUp
-let b;  //in levelUp
-let i=0; //in check
-let score; //in check
-let h3 = document.querySelector("#change");
-let btns = document.querySelectorAll(".clickBox");
-let body = document.querySelector("body");
-let level = 1;
-let start = "false"
-let Highest = 0; //in Highest score
-let p = document.createElement("p"); //in Highest score
-body.append(p);  //in Highest score
+// Arrays to store game and user sequences
+let gameSeq = []; 
+let userSeq = []; 
 
+// Variables used for game mechanics
+let rand, b, i = 0, score, level = 1, Highest = 0;
+let h3 = document.querySelector("#change"); // Display level and messages
+let btns = document.querySelectorAll(".clickBox"); // Color boxes
+let body = document.querySelector("body"); // Body element for styling
+let start = "false"; // Game start flag
+let p = document.createElement("p"); // Display highest score
+body.append(p); 
+
+// Difficulty level set by the user
 let difficulty = parseInt(prompt("Enter the level of difficulty (700-Easy, 500-Medium, 300-Hard)"));
 
-document.addEventListener("keydown",function()
-{
-    if (start == "false")
-    {        
-        levelUp();
+// Start the game with a key press
+document.addEventListener("keydown", function() {
+    if (start == "false") {        
+        levelUp(); // Initialize the first level
     }
-    start = "true";
+    start = "true"; // Update start flag
 });
 
-function btnflash(btn)
-{
+// Flash effect for game sequence
+function btnflash(btn) {
     btn.classList.add("flash");
-    setTimeout(function()
-    {
+    setTimeout(function() {
         btn.classList.remove("flash");
-    },difficulty);
+    }, difficulty);
 }
 
-function userBtnflash(btn)
-{
+// Flash effect for user clicks
+function userBtnflash(btn) {
     btn.classList.add("userflash");
-    setTimeout(function()
-    {
+    setTimeout(function() {
         btn.classList.remove("userflash");
-    },200);
+    }, 200);
 }
 
-function levelUp() 
-{
+// Move to the next level by adding a new sequence step
+function levelUp() {
     h3.innerText = `Level ${level}`; 
-    rand = Math.floor(Math.random()*3);
+    rand = Math.floor(Math.random() * 3); // Select random color
     b = btns[rand];
     gameSeq.push(b);   
     btnflash(b);
     userSeq = [];
 }
 
-function gameOver()
-{
+// Trigger game over sequence
+function gameOver() {
     body.classList.add("gameEnd");
-    setTimeout(function()
-    {
+    setTimeout(function() {
         body.classList.remove("gameEnd");
-    },200);
+    }, 200);
 }
 
-function check()
-{
-    if (i<level)
-    {
-        if (userSeq[i] == gameSeq[i])
-            {
-                console.log("Correct sequence");
-                i++;
-                if(i == level)
-                {
-                    level++;
-                    i=0;
-                    levelUp();
-                }
+// Check if user sequence matches game sequence
+function check() {
+    if (i < level) {
+        if (userSeq[i] == gameSeq[i]) {
+            console.log("Correct sequence");
+            i++;
+            if (i == level) {
+                level++;
+                i = 0;
+                levelUp();
             }
-            else
-            {
-                console.log("Wrong sequence");
-                score = level-1;
-                h3.innerHTML = `Game Over!!! <br> Your current score is ${score}. <br> Press any key to restart.`
-                gameOver();
-                restart();
-            }
+        } else {
+            console.log("Wrong sequence");
+            score = level - 1;
+            h3.innerHTML = `Game Over!!! <br> Your current score is ${score}. <br> Press any key to restart.`;
+            gameOver();
+            restart();
+        }
     }
-
 }
 
-for (btn1 of btns)
-{
-    btn1.addEventListener("click",function ()
-{
-    userBtnflash(this);
-    userSeq.push(this);
-    check();
-});
+// Capture user clicks on color boxes and verify sequence
+for (let btn1 of btns) {
+    btn1.addEventListener("click", function () {
+        userBtnflash(this);
+        userSeq.push(this);
+        check();
+    });
 }
 
-
-function restart() 
-{
-    start = "false"
+// Reset game parameters for restart
+function restart() {
+    start = "false";
     gameSeq = [];
     userSeq = [];
     level = 1;
-    if (Highest<score)
-        {
-            Highest = score;
-        }
+    if (Highest < score) {
+        Highest = score;
+    }
     p.innerText = `Highest score is: ${Highest}`;
 }
-
-
-
