@@ -95,5 +95,15 @@ function restart() {
     if (Highest < score) {
         Highest = score;
     }
-    p.innerText = `Highest score is: ${Highest}`;
+    let localHigh = localStorage.getItem("High-Score"); //Get the all time highest score stored in local storage
+    // Compare the all time Highest score with the current score
+    if(localHigh<Highest)
+    {
+        localStorage.setItem("High-Score",Highest); //Update the all time highest score in local storage
+        p.innerText = `Highest score is: ${Highest}`;
+    }
+    else{
+        p.innerText = `Highest score is: ${localHigh}`;
+    }
+   
 }
