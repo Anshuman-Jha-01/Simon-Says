@@ -20,7 +20,7 @@ The **Simon Says Game** is a memory game where the player needs to repeat a sequ
 
 - **Interactive Gameplay**: Players can use their memory to repeat sequences and progress through levels.
 - **Difficulty Selection**: Choose difficulty level at the start (Easy, Medium, or Hard).
-- **Score Tracking**: Displays the highest score after each game.
+- **Score Tracking**: Displays the all time highest score stored in the local storage after each game.
 
 ## Technologies Used
 
